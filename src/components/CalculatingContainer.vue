@@ -465,7 +465,7 @@ methods: {
 
     } catch (error) {
         console.error('Error evaluating formula:', error);
-        this.errorMessage = 'החישוב נכשל, בדקו את הנתונים ואת הנוסחא';
+        this.errorMessage = 'אופס... משהו השתבש, לחצו על כפתור "איפוס" כדי לחשב מחדש';
         setTimeout(() => {
             this.errorMessage = '';
         }, 4500);

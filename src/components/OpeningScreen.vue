@@ -11,13 +11,14 @@
             <div class="text">
                 נהג חילוץ יקר, בעת הגעה לאירוע חילוץ מסוג משיכה יש לזכור כי ישנם כמה פרמטרים חשובים אותם יש לבדוק טרם החילוץ:
             </div>
-            <div class="container-checklist">
-                <div
+                <div class="container-checklist">
+                    <div
                     class="item"
                     v-for="(item, index) in checklist"
                     :key="item"
                     :style="getChecklistAnimationStyle(index)"
                 >
+                    <img class="item-icon" src="/src/assets/media/icon.png" alt="icon" />
                     {{ item }}
                 </div>
             </div>
@@ -154,10 +155,10 @@ export default {
 
 /* Checklist Items */
 .container-checklist {
-    margin-top: 1rem;
+    margin-top: 0.2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     width: 90%;
 }
 
@@ -173,24 +174,46 @@ export default {
 }
 
 .item {
-    margin: 0.4rem;
-    padding: 0.7rem;
+    margin: 0.2rem 0;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.3s, transform 0.3s;
     opacity: 0;
     animation-name: fade-in;
     animation-fill-mode: forwards;
 }
 
+.item:active {
+    transform: scale(1.03);
+}
+
 .dark-mode .item {
-    color: rgb(245, 154, 63);
-    border: 2px solid 
+    color: #f5e1c9;
+    /* background-color: rgba(66, 60, 51, 0.724); */
+    /* border: 2px solid #f5a541; */
 }
 
 .light-mode .item {
-    color: #ffffff;
-    /* border: 2px solid #6f9a9ac2; */
-    background-color: #629f9f5f;
+    color: #2a4545;
+    /* background-color: rgba(98, 159, 159, 0.1); */
+    /* border: 2px solid #629f9f; */
+}
+
+.item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.dark-mode .item-icon {
+    filter: brightness(8) contrast(0.2) sepia(1) saturate(400%) hue-rotate(0deg);
+}
+
+.light-mode .item-icon {
+    filter: brightness(2.7) contrast(1) sepia(1) saturate(600%) hue-rotate(-50deg) opacity(0.6);;
 }
 
 
@@ -262,5 +285,8 @@ export default {
 .light-mode .text {
     background-color: rgba(255, 192, 203, 0.173);
 }
-
+.dark-mode .text {
+    background-color:  rgba(251, 186, 64, 0.944);
+    color:black;
+}
 </style>
