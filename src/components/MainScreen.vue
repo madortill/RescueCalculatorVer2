@@ -126,6 +126,7 @@ export default {
       };
       this.MKinfo = null;
       this.degreeInfo = null;
+      this.firstTime = true;
       this.containerKey++;
 
       setTimeout( () => {
