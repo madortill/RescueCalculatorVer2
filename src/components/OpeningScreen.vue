@@ -1,6 +1,7 @@
 <template>
     <div id="opening-screen" :class="darkMode ? 'dark-mode' : 'light-mode'">
         <img class="madortill" src="/src/assets/media/madortill.png" alt="icon" />
+        <!-- <img class="logo" src="/src/assets/media/bahad20logo.svg" alt="icon" /> -->
 
         <div v-if="page === 0" class="open-page">
             <div class="title">ברוכים הבאים למחשבון חישוב התנגדות לחילוץ!</div>
@@ -267,6 +268,13 @@ export default {
     position: absolute;
     bottom: 1.25rem;
     right: 1.25rem;
+}
+
+.logo {
+    width: 2.5rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
 }
 
 .dark-mode .madortill {

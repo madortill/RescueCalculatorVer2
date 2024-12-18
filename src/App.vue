@@ -54,6 +54,10 @@
       <ThemeSwitcher
         @click="changeMode">
     </ThemeSwitcher>
+
+    <!-- <about-page></about-page> -->
+    <!-- i neeed to add styles -->
+     
     </div>
 </template>
 
@@ -62,6 +66,7 @@ import MainScreen from './components/MainScreen.vue'
 import OpeningScreen from './components/OpeningScreen.vue'
 import EndingScreen from './components/EndScreen.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
+import AboutPage from './components/AboutPage.vue'
 
 export default {
   name: "app",
@@ -69,7 +74,8 @@ export default {
   MainScreen,
   OpeningScreen,
   ThemeSwitcher,
-  EndingScreen
+  EndingScreen,
+  AboutPage
   },
   data() {
     return {
