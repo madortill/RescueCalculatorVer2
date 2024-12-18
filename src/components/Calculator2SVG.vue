@@ -103,7 +103,7 @@
 
       <g>
         <rect  x="95.5" y="375.5" width="77.5" height="210" rx="22" ry="22" transform="translate(-160 405) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
-          <g :class="{'disabled': !MKfound || currState.formula || currState.degree || currState.ground} ">
+          <g :class="{'disabled': !MKfound } ">
           <rect  x="90" y="475.5" width="60" height="90" rx="17.78" ry="17.78" transform="translate(-150 390) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
           <text class="cls-2" :transform="'translate(65 265) scale(0.999)'" text-anchor="middle" alignment-baseline="middle"  :class="['center-text', isDark ? 'dark-text' : 'light-text']">
               <tspan v-if="MKfound" :x="305" :y="10" :style="{ fontSize: '2rem'}">{{ MKinfo.factor }}</tspan>
@@ -117,7 +117,7 @@
            </text>
            </g>
 
-           <g :class="{'disabled': !degreeFound || currState.formula || currState.degree || currState.ground}">
+           <g :class="{'disabled': !degreeFound }">
           <rect  x="90" y="375" width="60" height="90" rx="17.78" ry="17.78" transform="translate(-150 390) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
           <text class="cls-2" :transform="'translate(65 265) scale(0.999)'" text-anchor="middle" alignment-baseline="middle"  :class="['center-text', isDark ? 'dark-text' : 'light-text']">
               <tspan v-if="degreeFound" :x="205" :y="10" :style="{ fontSize: '2rem'}">{{ degreeInfo.factor }}</tspan>
@@ -221,36 +221,36 @@
   if (allStatesFalse) {
     // Ensure listeners are added to all groups with "button" class
     const buttonGroups = document.querySelectorAll("g.button"); // Ensure SVG group elements are targeted
-    console.log("Adding listeners to buttons:", buttonGroups.length);
     buttonGroups.forEach((button) => {
         button.addEventListener("click", this.getInfo);
         button.classList.remove("disabled"); // Enable button interactions
       
     });
   }
-},
-getInfo(event) {
-  // Initialize the children array from the current target
-  if (this.childrenArr.length === 0) {
-    this.childrenArr = Array.from(event.currentTarget.children);
-  }
+  },
+  getInfo(event) {
+    // Function to recursively search for text content in children
+    const findTextContent = (element) => {
+      if (element.tagName === 'text' || element.tagName === 'tspan') {
+        return element.textContent.trim();
+      }
+      for (let child of element.children) {
+        const result = findTextContent(child);
+        if (result) return result; // Return as soon as we find valid text
+      }
+      return null; // Return null if no valid text is found
+    };
 
-  for (let i = 0; i < this.childrenArr.length; i++) {
-    const currentChild = this.childrenArr[i];
+    // Start searching from the current target
+    const clickedButton = event.currentTarget;
+    const textContent = findTextContent(clickedButton);
 
-    if (currentChild.children && currentChild.children.length > 0) {
-      this.childrenArr = Array.from(currentChild.children);
-      this.getInfo({ currentTarget: currentChild }); // Pass the current child for further processing
-      return; // Prevent further processing of siblings after recursion
-    }
-
-    if (currentChild.tagName === 'text') {
-      this.chosenBtn = currentChild.textContent.trim(); // Trim whitespace for consistent values
-
-      this.childrenArr = [];
+    if (textContent) {
+      this.chosenBtn = textContent;
+      // console.log("Chosen button:", this.chosenBtn);
       this.$emit('chosen-btn', this.chosenBtn);
 
-      // Trigger specific actions based on the chosen button
+      // Trigger specific actions based on the button's label
       if (this.chosenBtn === 'נוסחאות') {
         this.handleFormula();
       } else if (this.chosenBtn === 'סוג קרקע') {
@@ -258,13 +258,10 @@ getInfo(event) {
       } else if (this.chosenBtn === 'שינוי זוית') {
         this.handleDegree();
       }
-      return; // Exit after finding the relevant button
+    } else {
+      console.warn("No valid text found in clicked button.");
     }
   }
-
-  // Reset the children array after processing
-  // this.childrenArr = [];
-}
 
   },
   };

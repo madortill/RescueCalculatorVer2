@@ -73,8 +73,8 @@ export default {
   },
   data() {
     return {
-      // page: 0,
-      page: 1,
+      page: 0,
+      // page: 1,
       darkMode: false,
       result: null,
       showGlobalLoader: false,
@@ -102,7 +102,7 @@ goToNext(pageSent) {
       }
     },
 async initializeLoader(type) {
-  const MINIMUM_LOADER_TIME = 6750;
+  const MINIMUM_LOADER_TIME = 4500;
   const loaderStartTime = Date.now();
   const gifSrc = type === "calc"
     ? "/src/assets/media/calc-gif.gif"

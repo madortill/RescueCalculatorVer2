@@ -67,6 +67,7 @@ export default {
       showLoader: true,
       containerKey: 0,
       gifLoaded: false, // Track when the GIF is fully loaded
+      firstTime: true
    };
   },
   computed: {
@@ -81,7 +82,7 @@ export default {
     handleClicked(btn) {
     const stateOrder = ["ground", "formula", "degree"];
     const currentIndex = stateOrder.findIndex(state => this.clickedStates[state]);
-    if (currentIndex !== -1) {
+    if (currentIndex !== -1 && this.firstTime) {
       Object.keys(this.clickedStates).forEach(name => {
         this.clickedStates[name] = false;
       });
@@ -98,15 +99,15 @@ export default {
         this.clickedStates[name] = false;
       });
       this.clickedStates[btn] = !currentState;
+      this.firstTime = false;
     }
-    // console.log(this.clickedStates);
   },
     sendToNext(page) {
       this.$emit("nextScreen", page);     
     },
     handleChosenBtn(chosenBtn) { 
       this.counter++;
-      console.log(chosenBtn);
+      // console.log(chosenBtn);
       if (Number(chosenBtn) || Number(chosenBtn) === 0) {
           this.chosenValueString = String(chosenBtn)+String(this.counter);
       } else {
@@ -120,7 +121,7 @@ export default {
       this.stringBtn = '';
       this.clickedStates = {
         formula: false,
-        ground: false,
+        ground: true,
         degree: false,
       };
       this.MKinfo = null;
