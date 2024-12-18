@@ -1,8 +1,15 @@
 <template>
     <div id="calculating-container" >
         <div :class="darkMode ? 'dark-mode' : 'light-mode'">
-            <div v-if="!MKnumber && !clickedStates.ground && !afterDelete" class='guidance'>בחרו סוג קרקע</div>
-            <div v-else-if="showGuidance && !chosenFormula && !clickedStates.formula && !clickedStates.ground && !afterDelete" class='guidance'>בחרו נוסחא</div>
+            <div v-show="clickedStates.ground" class='guidance'>בחרו סוג קרקע</div>
+            <div v-show="clickedStates.formula && !clickedStates.ground" class='guidance'>בחרו נוסחא</div>
+            <div v-show="clickedStates.degree && !clickedStates.formula && !clickedStates.ground && !showOptions" class='guidance'>תרצו לשנות את כיוון הזוית?
+                <div class="degree-inner-container">
+                    <div class="item" @click="changeDegreeFlag">כן</div>
+                    <div class="item" @click="close">לא</div>
+                </div>
+            </div>
+            <div v-show="clickedStates.degree && !clickedStates.formula && !clickedStates.ground && showOptions" class='guidance'>בחרו את הזוית הרצויה</div>
         </div>
         
         <div class="ground-container" v-show="clickedStates.ground" :class="darkMode ? 'dark-mode' : 'light-mode'">
@@ -26,14 +33,7 @@
         </div>
 
         <div class="degree-outer-container" v-show="clickedStates.degree" :class="darkMode ? 'dark-mode' : 'light-mode'">
-            <div v-if="degreeFlag">
-                <div class="degreeTitle">תרצו לשנות את כיוון הזוית?</div>
-                <div class="degree-inner-container">
-                    <div class="item" @click="changeDegreeFlag">כן</div>
-                    <div class="item" @click="close">לא</div>
-                </div>
-            </div>
-            <div v-else-if="showOptions">
+            <div v-if="showOptions">
                 <div class="degreeTitle">בחרו את הזוית הרצויה</div>
                 <div class="degree-inner-container">
                     <div
@@ -66,12 +66,10 @@ name: "calculating-container",
 props: ['chosenValueString', 'clickedStates', 'darkMode', 'stringBtn'], 
 data() {
   return {
-    showGuidance: false,
     MKnumber: null,
     MTSnumber: null,
     degreeNum: null,
     degreeFactor: null,
-    afterDelete: false,
     safetyFactor: 1.25,
     formulasArr: [
         {
@@ -223,7 +221,6 @@ methods: {
     chooseGround(ground) {
         setTimeout(() => {
             this.MKnumber = ground.factor;
-            this.showGuidance = true;
             this.$emit("MKinfo", ground);
             this.$emit("clickedBtn", "ground");
             // this.$emit("resetButtonState");
@@ -320,7 +317,6 @@ methods: {
         this.MTSnumber = null;
         this.degreeNum = null;
         this.localChosenBtn = '';
-        this.afterDelete = true;
         this.localString = '';
         this.result= null;
         this.calculationTriggered = false; // Reset calculation flag
@@ -535,12 +531,10 @@ created() {
 } 
 
 #calculating-container {
-    width: 92%;
-    height: 23%;
-    position: absolute;
-    top: 1.75rem;
-    right: 50%;
-    transform: translateX(50%);
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
     border-radius: 2rem;
     font-size: 1.1rem;
     font-weight: 550;
@@ -548,9 +542,7 @@ created() {
 }
 
 .charStyle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 1.5rem 0.2rem;
     width: 100vw;
     text-align: center;
     font-size: 1.65rem;
@@ -563,23 +555,18 @@ created() {
 }
 
 .formula-container {
-    position: absolute;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     text-align: center;
     border-radius: 15px;
-    width: 100%;
-    height: 100%;
-
+    margin: 0.4rem 0.5rem; 
 }
 
 .formula-options {
-    padding: 0.25rem;
-    width: 75%;
+    align-content: center;
+    padding: 0.45rem;
     border-radius: 15px;
-    margin: 0.1rem;
+    margin: 0.2rem;
     z-index: 23;
     color: black;
 }
@@ -597,37 +584,34 @@ created() {
 
 
 .ground-container {
-    position: absolute;
-    top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: center;
     border-radius: 15px;
-    width: 100%;
+    margin: 0.6rem 1.2rem;
 }
 
 .degree-outer-container {
-    position: absolute;
-    top: 3.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: center;
     border-radius: 15px;
-    width: 100%;
 }
 
 .degree-inner-container {
     margin-top: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     text-align: center;
     border-radius: 15px;
     width: 100%;
 }
 
+.degree-inner-container .item {
+    font-size: 1.2rem;
+}
 .item {
     padding: 0.7rem;
     margin: 0.3rem;
@@ -684,7 +668,7 @@ created() {
 .calc {
     direction: ltr;
     text-align: left;
-    margin-top: 5rem;
+    margin: 3rem 0.8rem;
     font-family: 'Heebo';
 }
 .dark {

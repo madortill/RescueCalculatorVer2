@@ -5,19 +5,19 @@
     </g>
     <g id="Layer_3" data-name="Layer 3">
       <!-- Row 1 -->
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="60" cy="555" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(75 200) scale(.999)">
             <tspan x="-5" y="370">1</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="150" cy="555" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(157.5 200) scale(.999)">
             <tspan x="2.5" y="370">2</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="245" cy="555" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(240 200) scale(.999)">
             <tspan x="15.5" y="370">3</tspan>
@@ -25,19 +25,19 @@
     </g>
 
     <!-- Row 2 -->
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="60" cy="460" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(75 300) scale(.999)">
             <tspan x="-5" y="175">4</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="150" cy="460" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(157.5 300) scale(.999)">
             <tspan x="2.5" y="175">5</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="245" cy="460" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(240 300) scale(.999)">
             <tspan x="15.5" y="175">6</tspan>
@@ -45,19 +45,19 @@
     </g>
 
     <!-- Row 3 -->
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="60" cy="362.5" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(75 400) scale(.999)">
             <tspan x="-5" y="-22.5">7</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="150" cy="362.5" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(157.5 400) scale(.999)">
             <tspan x="2.5" y="-22.5">8</tspan>
         </text>
     </g>
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <ellipse class="cls-1" cx="245" cy="362.5" rx="37" ry="37" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(240 400) scale(.999)">
             <tspan x="15.5" y="-22.5">9</tspan>
@@ -65,28 +65,28 @@
     </g>
 
     <!-- 0 Button -->
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
         <rect class="cls-1" x="25" y="610" width="255" height="75" rx="28.45" ry="28.45" />
         <text :class="['cls-4', { 'light-text': !isDark }]" transform="translate(160 490) scale(.999)">
             <tspan x="-90" y="175">0</tspan>
         </text>
     </g>
     
-    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+    <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
           <rect class="cls-5" x="120" y="240" width="75" height="60"  rx="20" ry="20" />
           <text  class="cls-4 differentSize" :style="{ fontSize: '1.65rem  !important'}"  transform="translate(355 495) scale(.999)">
               <tspan x="-175" y="-217.5">מחק</tspan>
           </text>
       </g>
 
-      <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+      <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
           <rect class="cls-5" x="30" y="240" width="75" height="60"  rx="20" ry="20" />
           <text  class="cls-4 differentSize" :style="{ fontSize: '1.65rem  !important'}"  transform="translate(355 495) scale(.999)">
               <tspan x="-260" y="-217.5">איפוס</tspan>
           </text>
       </g>
 
-      <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+      <g class="button" :class="{'disabled': currState.formula || currState.degree || currState.ground, 'disabled' : true}">
           <ellipse class="cls-5 equal" cx="367.5" cy="635" rx="60" ry="60" />
           <text class="cls-3" :style="{ fontSize: '5.5rem'}" transform="translate(365 395) scale(.999)">
               <tspan x="25" y="270" :style="{ fill: 'white'}">=</tspan>
@@ -94,7 +94,7 @@
       </g>
       
 
-      <g id="ground-btn" class="button"  @click="handleGround" :class="{'disabled': currState.degree || currState.formula}">
+      <g class="button" :class="{'disabled': currState.degree || currState.formula, 'disabled' : true}">
           <rect class="cls-5" x="635" y="563" width="60" height="125" rx="25" ry="25" transform="translate(-260 1030) rotate(-90)" />
           <g transform="translate(0, 0)">
               <text class="cls-2" text-anchor="middle" x="365" y="375">סוג קרקע</text>
@@ -103,7 +103,7 @@
 
       <g>
         <rect  x="95.5" y="375.5" width="77.5" height="210" rx="22" ry="22" transform="translate(-160 405) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
-          <g :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+          <g :class="{'disabled': !MKfound || currState.formula || currState.degree || currState.ground} ">
           <rect  x="90" y="475.5" width="60" height="90" rx="17.78" ry="17.78" transform="translate(-150 390) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
           <text class="cls-2" :transform="'translate(65 265) scale(0.999)'" text-anchor="middle" alignment-baseline="middle"  :class="['center-text', isDark ? 'dark-text' : 'light-text']">
               <tspan v-if="MKfound" :x="305" :y="10" :style="{ fontSize: '2rem'}">{{ MKinfo.factor }}</tspan>
@@ -115,8 +115,9 @@
               <tspan :x="305" :y="0" :style="{ fontSize: '1rem'}"> לא נבחר </tspan>
               <tspan :x="305" :y="20" :style="{ fontSize: '1rem'}">סוג קרקע</tspan>
            </text>
+           </g>
 
-           <g :class="{'disabled': currState.formula || currState.degree || currState.ground}">
+           <g :class="{'disabled': !degreeFound || currState.formula || currState.degree || currState.ground}">
           <rect  x="90" y="375" width="60" height="90" rx="17.78" ry="17.78" transform="translate(-150 390) rotate(-90)" :class="isDark ? 'dark-button' : 'light-button'" />
           <text class="cls-2" :transform="'translate(65 265) scale(0.999)'" text-anchor="middle" alignment-baseline="middle"  :class="['center-text', isDark ? 'dark-text' : 'light-text']">
               <tspan v-if="degreeFound" :x="205" :y="10" :style="{ fontSize: '2rem'}">{{ degreeInfo.factor }}</tspan>
@@ -129,11 +130,9 @@
             <tspan :x="205" :y="20" :style="{ fontSize: '1rem'}">  שינוי זוית</tspan>
           </text>
           </g>
-
-          </g>
       </g>
       
-      <g id="degree-btn" class="button" :class="{'disabled': currState.ground || currState.formula}">
+      <g class="button" :class="{'disabled': currState.ground || currState.formula, 'disabled' : true}">
           <rect class="cls-5" x="475" y="563.5" width="60" height="125" rx="25" ry="25" transform="translate(-260 1030) rotate(-90)" />
           <g transform="translate(0, 0)">
               <text class="cls-2" text-anchor="middle" x="365" y="535">שינוי זוית</text>
@@ -141,11 +140,11 @@
       </g>
 
 
-      <g id="formula-btn" class="button" :class="{'disabled': currState.ground || currState.degree}">
+      <g class="button" :class="{'disabled': currState.ground || currState.degree, 'disabled' : true}">
           <rect class="cls-5" x="130" y="243" width="60" height="125" rx="25" ry="25" transform="translate(60 605) rotate(-90)" />
-          <text class="cls-2" transform="translate(280 280) scale(0.999)">
-              <tspan x="130" y="175">נוסחאות</tspan>
-          </text>
+          <g class="cls-2" transform="translate(280 280) scale(0.999)">
+              <text x="130" y="175">נוסחאות</text>
+          </g>
       </g> 
     </g>
   </svg>
@@ -166,6 +165,25 @@
           }
       }
   },
+  mounted() {
+    // Automatically check and add listeners on component mount
+    this.addListeners();
+  },
+  watch: {
+  // Reactively watch for state changes to add/remove listeners
+  clickedStates: {
+    deep: true,
+    handler(newStates) {
+      const allStatesFalse = !newStates.formula && 
+                             !newStates.ground && 
+                             !newStates.degree;
+
+      if (allStatesFalse) {
+        this.addListeners();
+      }
+    }
+  }
+},
   computed: {
       isDark() {
       return this.darkMode;
@@ -186,52 +204,68 @@
   methods: {
     handleGround() {
     this.$emit('clickedBtn', 'ground');
-    this.addFormulaListener(); // Add listener for "formula" button after clicking "ground"
   },
   handleFormula() {
     this.$emit('clickedBtn', 'formula');
-    this.addDegreeListener();
-    this.addRemainingListeners(); // Add listener for "degree" button after clicking "formula"
   },
   handleDegree() {
     this.$emit('clickedBtn', 'degree');
     // Add listeners for all other buttons after clicking "degree"
   },
-  addFormulaListener() {
-    const formulaBtn = document.getElementById("formula-btn");
-    if (formulaBtn) {
-      formulaBtn.addEventListener("click", this.handleFormula);
-    }
-  },
-  addDegreeListener() {
-    const degreeBtn = document.getElementById("degree-btn");
-    if (degreeBtn) {
-      degreeBtn.addEventListener("click", this.handleDegree);
-    }
-  },
-  addRemainingListeners() {
-    const buttonGroups = document.querySelectorAll(".button");
+  addListeners() {
+  // Check if all states are false before adding listeners
+  const allStatesFalse = !this.clickedStates.formula && 
+                         !this.clickedStates.ground && 
+                         !this.clickedStates.degree;
+
+  if (allStatesFalse) {
+    // Ensure listeners are added to all groups with "button" class
+    const buttonGroups = document.querySelectorAll("g.button"); // Ensure SVG group elements are targeted
+    console.log("Adding listeners to buttons:", buttonGroups.length);
     buttonGroups.forEach((button) => {
-      if (!button.id.includes("formula") && !button.id.includes("degree")) {
         button.addEventListener("click", this.getInfo);
-      }
+        button.classList.remove("disabled"); // Enable button interactions
+      
     });
-  },
-      getInfo(event) {
-          if (this.childrenArr.length === 0) {
-              this.childrenArr = event.currentTarget.children;
-          }
-          for (let i = 0; i < this.childrenArr.length; i++) {
-              if ((this.childrenArr[i].children).length > 1) {
-                  this.childrenArr = this.childrenArr[i].children;
-                  this.getInfo(this.childrenArr);
-              } else if (this.childrenArr[i].tagName === 'text' ) {
-                  this.chosenBtn = this.childrenArr[i].textContent;
-                  this.childrenArr = [];
-                  this.$emit('chosen-btn', this.chosenBtn);
-          }
+  }
+},
+getInfo(event) {
+  // Initialize the children array from the current target
+  if (this.childrenArr.length === 0) {
+    this.childrenArr = Array.from(event.currentTarget.children);
+  }
+
+  for (let i = 0; i < this.childrenArr.length; i++) {
+    const currentChild = this.childrenArr[i];
+
+    if (currentChild.children && currentChild.children.length > 0) {
+      this.childrenArr = Array.from(currentChild.children);
+      this.getInfo({ currentTarget: currentChild }); // Pass the current child for further processing
+      return; // Prevent further processing of siblings after recursion
+    }
+
+    if (currentChild.tagName === 'text') {
+      this.chosenBtn = currentChild.textContent.trim(); // Trim whitespace for consistent values
+
+      this.childrenArr = [];
+      this.$emit('chosen-btn', this.chosenBtn);
+
+      // Trigger specific actions based on the chosen button
+      if (this.chosenBtn === 'נוסחאות') {
+        this.handleFormula();
+      } else if (this.chosenBtn === 'סוג קרקע') {
+        this.handleGround();
+      } else if (this.chosenBtn === 'שינוי זוית') {
+        this.handleDegree();
       }
-  },
+      return; // Exit after finding the relevant button
+    }
+  }
+
+  // Reset the children array after processing
+  // this.childrenArr = [];
+}
+
   },
   };
 </script>
@@ -343,7 +377,8 @@ fill: #000;
   opacity: 0.75;;
 }
 
-.button.disabled {
+.button.disabled,
+.disabled {
   opacity: 0.5;
   pointer-events: none;
 }
@@ -351,3 +386,8 @@ fill: #000;
 
 
 </style>
+
+
+
+
+

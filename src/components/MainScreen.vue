@@ -1,8 +1,6 @@
 <template>
   <div div id="main-screen" :style="{ backgroundColor: darkMode ? 'black' : 'white' }">
 
-
-
     <!-- <div v-else> -->
         <Calculator2SVG 
           class="container"
@@ -59,8 +57,8 @@ export default {
       chosenValueString: null,
       stringBtn: '',
       clickedStates: {
+        ground: true,
         formula: false,
-        ground: false,
         degree: false,
       },
       MKinfo: null,
@@ -81,18 +79,34 @@ export default {
       this.degreeInfo = degree;
     },
     handleClicked(btn) {
+    const stateOrder = ["ground", "formula", "degree"];
+    const currentIndex = stateOrder.findIndex(state => this.clickedStates[state]);
+    if (currentIndex !== -1) {
+      Object.keys(this.clickedStates).forEach(name => {
+        this.clickedStates[name] = false;
+      });
+
+      const nextIndex = (currentIndex + 1) % (stateOrder.length + 1);
+
+      if (nextIndex < stateOrder.length) {
+        const nextState = stateOrder[nextIndex];
+        this.clickedStates[nextState] = true;
+      }
+    } else {
       const currentState = this.clickedStates[btn];
       Object.keys(this.clickedStates).forEach(name => {
         this.clickedStates[name] = false;
       });
       this.clickedStates[btn] = !currentState;
-    },
+    }
+    // console.log(this.clickedStates);
+  },
     sendToNext(page) {
       this.$emit("nextScreen", page);     
     },
     handleChosenBtn(chosenBtn) { 
       this.counter++;
-      // console.log(chosenBtn);
+      console.log(chosenBtn);
       if (Number(chosenBtn) || Number(chosenBtn) === 0) {
           this.chosenValueString = String(chosenBtn)+String(this.counter);
       } else {

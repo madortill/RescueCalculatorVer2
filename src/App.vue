@@ -73,8 +73,8 @@ export default {
   },
   data() {
     return {
-      page: 0,
-      // page: 2,
+      // page: 0,
+      page: 1,
       darkMode: false,
       result: null,
       showGlobalLoader: false,
